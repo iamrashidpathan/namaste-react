@@ -1,0 +1,1 @@
+export const LOGO_URL = "https://s3.amazonaws.com/ionic-marketplace/food-ordering-restaurant-delivery-app/icon.png"
