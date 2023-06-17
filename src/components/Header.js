@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useState } from "react"
 import { LOGO_URL } from "../utils/constants"
 
 const Header =()=>{
+    const [loggedin, setLoggedin] = useState(false)
     return(
         <div className="header">
             <div className="logo-container">
@@ -16,6 +17,7 @@ const Header =()=>{
                     <li>About Us</li>
                     <li>Contact Us</li>
                     <li>Cart</li>
+                    <button className="login" onClick={()=>setLoggedin(!loggedin)}>{loggedin? "Logout": "Login"}</button>
                 </ul>
             </div>
         </div>
