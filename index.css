@@ -69,3 +69,19 @@
 .filter{
     display: flex;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.menu-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.menu-logo{
+    width: 250px;
+}
