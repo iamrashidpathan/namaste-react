@@ -8,7 +8,7 @@ import { CDN_URL } from '../utils/constants';
 
 export default function ControlledAccordions(props) {
     // debugger
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = React.useState("Recommended");
     const [itemCards, setItemCards] = React.useState()
     React.useEffect(()=>{
         setItemCards(props.menuData.itemCards)
@@ -16,6 +16,7 @@ export default function ControlledAccordions(props) {
     })
 
   const handleChange = (panel) => (event, isExpanded) => {
+    // debugger
     setExpanded(isExpanded ? panel : false);
   };
 

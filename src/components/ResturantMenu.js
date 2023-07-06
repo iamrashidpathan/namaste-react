@@ -20,7 +20,6 @@ const RestaurantMenu = (props)=>{
         )
         const json = await data.json()
         setresInfo(json?.data?.cards[0]?.card?.card?.info)
-        // debugger
         let menuArr =json?.data?.cards[2]?.groupedCard.cardGroupMap.REGULAR.cards
         setMenu(menuArr.slice(1, menuArr.length-2))
         console.log(menuArr.slice(1, menuArr.length-2))
