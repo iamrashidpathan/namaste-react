@@ -11,6 +11,7 @@ export default function ControlledAccordions(props) {
     const [expanded, setExpanded] = React.useState("Recommended");
     const [itemCards, setItemCards] = React.useState()
     React.useEffect(()=>{
+      console.log(props.menuData.itemCards)
         setItemCards(props.menuData.itemCards)
         // debugger
     })
@@ -40,7 +41,7 @@ export default function ControlledAccordions(props) {
                     <div className='menu-container' key={i}>
                         <span>{currItem.name} </span>  
                         {currItem.ribbon.text}
-                        <span>Rs.{currItem.price/100}</span>
+                        {currItem.price && <span>Rs.{currItem.price/100}</span>}
                         {currItem.showImage ?<img
                         className="menu-logo"
                         alt="menu-logo"

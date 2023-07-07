@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 import ResturantCard from "./ResturantCard"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
+import useOnLineStatus from "../utils/useOnlineStatus"
 
 const Body=(props) =>{
     const [data, setData] = useState([])
@@ -11,14 +12,12 @@ const Body=(props) =>{
         fetchData()
         // setData(props.resData)
     },[])
-
-    console.log("Body Rendered")
+    
 
     const fetchData = async () =>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4587758&lng=78.3691566&page_type=DESKTOP_WEB_LISTING")
 
         const json = await data.json()
-        console.log(json.data.cards[2].data.data.cards)
         setAllData(json?.data?.cards[2]?.data?.data?.cards)
         setData(json.data?.cards[2]?.data?.data?.cards)
     }
@@ -33,7 +32,8 @@ const Body=(props) =>{
         }
         
     }
-
+    let onlineStatus =useOnLineStatus()
+    if (!onlineStatus) return <h1>Looks like you are ofline. Please check your your internet connection</h1>
     return(
         <>
             <div className="filter">

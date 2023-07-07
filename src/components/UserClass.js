@@ -17,7 +17,6 @@ class UserClass extends Component{
         userInfo: json,
         });
 
-        console.log(json);
     }
 
     render(){

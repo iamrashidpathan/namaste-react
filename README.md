@@ -1,4 +1,4 @@
-#Namaste React Course
+#Food ordering App - Foodish
 
 Planning for the Food ordering App
 Header
