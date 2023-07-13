@@ -12,9 +12,9 @@ const RestaurantCard = (props) => {
   } = props?.data.data;
 
   return (
-    <div className="resturant-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="resturant-card rounded-lg bg-gray-100 hover:bg-gray-300">
       <img
-        className="resturant-logo"
+        className="resturant-logo rounded-lg m-2"
         alt="res-logo"
         src={CDN_URL + cloudinaryImageId}
       />

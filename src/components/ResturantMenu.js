@@ -10,8 +10,8 @@ const RestaurantMenu = (props)=>{
     let [resInfo, menu] = useResturantMenu(resId)
     return (
         resInfo?
-        <div className="menu">
-            <h1>{resInfo.name}</h1>
+        <div className="menu m-4">
+            <h1 className="text-lg font-semibold">{resInfo.name}</h1>
             <p>{resInfo.cuisines.join(",")} - {resInfo.costForTwoMessage} - {resInfo.areaName}</p>
             <h2>Menu</h2>
             {menu.length >0 && menu.map((el,i)=> <ControlledAccordions key={i} menuData={el?.card?.card}/>)}

@@ -38,9 +38,9 @@ const Body=(props) =>{
         <>
             <div className="filter">
                 <div className="search">
-                    <input type="text" placeholder="Search" onChange={(event)=>handleSearch(event.target.value)}></input>
+                    <input className="p-1 border-2" type="text" placeholder="Search" onChange={(event)=>handleSearch(event.target.value)}></input>
                 </div>
-                <button className="filter-btn" onClick={()=>{
+                <button className="filter-btn border-2 p-1 bg-zinc-400" onClick={()=>{
                     if(data.length === allData.length)
                     setData(data.filter((el)=>Number(el.data.avgRating)>4))
                     else
@@ -56,7 +56,7 @@ const Body=(props) =>{
                 </> 
                 :
                 <div className="body">
-                    <div className="resturant-conntainer">
+                    <div className="resturant-conntainer m-2">
                         {data.map(resturant =><Link key={resturant.data.id} to={`/resturantmenu/${resturant.data.id}`}><ResturantCard data={resturant}/></Link>)}
                     </div>
                 </div>

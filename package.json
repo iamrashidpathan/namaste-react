@@ -19,7 +19,9 @@
   "homepage": "https://github.com/iamrashidpathan/namaste-react#readme",
   "devDependencies": {
     "parcel": "^2.9.1",
-    "process": "^0.11.10"
+    "postcss": "^8.4.25",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.3.2"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -30,7 +32,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.13.0"
   },
-  "browserlist": [
+  "browserslist": [
     "last 2 Chrome version"
   ]
 }
