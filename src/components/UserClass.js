@@ -24,7 +24,7 @@ class UserClass extends Component{
         return(
             <div>
                 <>{this.props.role}</>
-                <img src={userInfo?.avatar_url}/>
+                <img className="m-auto" src={userInfo?.avatar_url}/>
                 <h3>{userInfo?.name}</h3>
                 <h4>{userInfo?.bio}</h4>
             </div>    

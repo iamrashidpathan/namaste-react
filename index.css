@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: rgb(230, 236, 233);
+}
 .header{
     display:flex;
     justify-content: space-between;
     border: 1px solid black;
     padding: 5px 10px;
+    align-items: center;
 }
 
 .logo{
@@ -80,10 +84,10 @@ a{
 .menu-container{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 5px;
 }
 
 .menu-logo{
-    width: 250px;
+    width: 100%;
 }

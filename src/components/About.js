@@ -17,10 +17,10 @@ class About extends Component {
   render() {
     //console.log("Parent Render");
     return (
-      <div>
-        <h1>Foodish</h1>
-        <h2>Eat, Burp, Repeat</h2>
-        <UserClass name={"First"} location={"Dehradun Class"} role={"Developer"}/>
+      <div className="m-4 text-center">
+        <h1 className="text-lg">Foodish</h1>
+        <h2 className="text-xs mb-2">Eat, Burp, Repeat</h2>
+         <UserClass name={"First"} location={"Dehradun Class"} role={"Founder & CEO"}/>
       </div>
     );
   }

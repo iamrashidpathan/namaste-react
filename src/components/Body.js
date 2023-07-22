@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import ResturantCard from "./ResturantCard"
+import ResturantCard, {withPromotedLabel} from "./ResturantCard"
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom"
 import useOnLineStatus from "../utils/useOnlineStatus"
@@ -13,7 +13,7 @@ const Body=(props) =>{
         // setData(props.resData)
     },[])
     
-
+    const RestaurantCardPromoted = withPromotedLabel(ResturantCard)
     const fetchData = async () =>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.4587758&lng=78.3691566&page_type=DESKTOP_WEB_LISTING")
 
@@ -21,7 +21,6 @@ const Body=(props) =>{
         setAllData(json?.data?.cards[2]?.data?.data?.cards)
         setData(json.data?.cards[2]?.data?.data?.cards)
     }
-
     const handleSearch = (searchText)=>{
         setShowShimmer(false)
         if (searchText.length ===0) setData(allData)
@@ -56,8 +55,10 @@ const Body=(props) =>{
                 </> 
                 :
                 <div className="body">
-                    <div className="resturant-conntainer m-2">
-                        {data.map(resturant =><Link key={resturant.data.id} to={`/resturantmenu/${resturant.data.id}`}><ResturantCard data={resturant}/></Link>)}
+                    <div className="resturant-conntainer mx-auto my-2 w-10/12">
+                        {data.map(resturant =><Link key={resturant.data.id} to={`/resturantmenu/${resturant.data.id}`}>
+                                {resturant.data.promoted?<RestaurantCardPromoted data={resturant}/>:<ResturantCard data={resturant}/>}
+                            </Link>)}
                     </div>
                 </div>
             }

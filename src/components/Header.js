@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { LOGO_URL } from "../utils/constants"
 import { Link } from "react-router-dom"
-
+import UserContext from "../utils/UserContext"
 const Header =()=>{
+    const data = useContext(UserContext)
     const [loggedin, setLoggedin] = useState(false)
     return(
         <div className="header">
@@ -16,6 +17,9 @@ const Header =()=>{
             </div>
             <div className="nav-items">
                 <ul>
+                    <li>
+                        {data.loggedInUser}
+                    </li>
                     <li>
                         <Link to="/">Home</Link>
                     </li>

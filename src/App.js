@@ -7,13 +7,16 @@ import Contact from "./components/Contact"
 import Error  from "./components/Error"
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
 import RestaurantMenu from "./components/ResturantMenu"
+import UserContext from "./utils/UserContext"
 
 const AppLayout =()=>{
     return (
-    <div className="app">
-        <Header/>
-        <Outlet/>
-    </div>
+    <UserContext.Provider value={{loggedInUser: "Rashid Khan"}}>
+        <div className="app">
+            <Header/>
+            <Outlet/>
+        </div>
+    </UserContext.Provider>
     )
 }
 
