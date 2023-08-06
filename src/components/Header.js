@@ -1,10 +1,16 @@
+import { useSelector } from "react-redux"
 import React, { useState, useContext } from "react"
 import { LOGO_URL } from "../utils/constants"
 import { Link } from "react-router-dom"
 import UserContext from "../utils/UserContext"
+
 const Header =()=>{
     const data = useContext(UserContext)
     const [loggedin, setLoggedin] = useState(false)
+
+    // Subscribe to store using selector
+    const cartItems = useSelector(store => store.cart.items)
+
     return(
         <div className="header">
             <div className="logo-container">
@@ -29,8 +35,12 @@ const Header =()=>{
                     <li>
                          <Link to="/contact">Contact Us</Link>
                     </li>
-                    <li>Cart</li>
-                    <button className="login" onClick={()=>setLoggedin(!loggedin)}>{loggedin? "Logout": "Login"}</button>
+                    <li>
+                        <Link to="/cart">Cart ({cartItems.length} items)</Link>
+                    </li>
+                    <li>
+                        <button className="login" onClick={()=>setLoggedin(!loggedin)}>{loggedin? "Logout": "Login"}</button>
+                    </li>
                 </ul>
             </div>
         </div>

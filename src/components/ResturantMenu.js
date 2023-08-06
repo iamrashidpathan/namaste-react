@@ -8,7 +8,7 @@ import useResturantMenu from "../utils/useResturantMenu";
 const RestaurantMenu = (props)=>{
     const {resId} = useParams();
     let [resInfo, menu] = useResturantMenu(resId)
-    console.log(menu)
+    // console.log(menu)
     let openOnLoad = menu[0]?.card?.card?.title
     return (
         resInfo?

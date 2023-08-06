@@ -5,6 +5,8 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { CDN_URL } from '../utils/constants';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 export default function ControlledAccordions(props) {
     const [expanded, setExpanded] = React.useState(props.openOnLoad);
@@ -12,9 +14,15 @@ export default function ControlledAccordions(props) {
     React.useEffect(()=>{
         setItemCards(props.menuData.itemCards)
     })
+    const dispatch = useDispatch()
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  const handleAddItem =(item)=>{
+    dispatch(addItem(item))
+  }
 
   return (
     <div>
@@ -30,7 +38,7 @@ export default function ControlledAccordions(props) {
               {/* <Typography sx={{ color: 'text.secondary' }}>I am an accordion</Typography> */}
             </AccordionSummary>
              {itemCards.map((el,i)=>{
-                // console.log(el.card.info)
+                //console.log(el.card.info)
                 let currItem =el.card.info
                 return(
                     <div className='menu-container border-b-2 pb-1' key={i}>
@@ -41,9 +49,12 @@ export default function ControlledAccordions(props) {
                         <span className='basis-1/4'>{currItem.price ? <span>₹ {currItem.price/100}</span>: <span>₹ {currItem.defaultPrice/100}</span>}</span>
                         <span className='basis-1/4'>
                         <div className='text-center mx-auto'>
-                          <button className='absolute my-1 bg-green-400 hover:bg-green-300 p-1 rounded-md font-bold text-sm'>ADD</button>
+                          <button className='absolute my-1 bg-green-400 hover:bg-green-300 p-1 rounded-md font-bold text-sm'
+                            onClick={()=>handleAddItem(currItem)}>
+                              ADD
+                            </button>
                         </div>  
-                        {currItem.showImage ?<img
+                        {currItem.imageId ?<img
                         className="menu-logo"
                         alt="menu-logo"
                         src={CDN_URL + currItem.imageId}
